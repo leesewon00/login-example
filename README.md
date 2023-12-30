@@ -1,1 +1,1 @@
-# login-example
+# login-example Spring Security session
