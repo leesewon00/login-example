@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google: # /oauth2/authorization/google 이 주소를 동작하게 한다.
+            client-id: 807126148105-t96352ihe350v13k6di28uqofro4givu.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
+    username: sewon
+    password: sewon1234
+    #create user 'sewon'@'%' identified by 'sewon1234';
+    #GRANT ALL PRIVILEGES ON *.* TO 'sewon'@'%';
+    #create database security;
+    #use security;
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
