@@ -1,1 +1,1 @@
-# login-example
+# login-example (JWT v1)
