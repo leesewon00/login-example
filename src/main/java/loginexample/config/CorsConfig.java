@@ -1,0 +1,26 @@
+package loginexample.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+@Configuration
+public class CorsConfig {
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*"); // e.g. http://domain1.com
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+
+        // /api/** 로 오는 모든 호출은 이 설정을 따르도록
+        source.registerCorsConfiguration("/api/**", config);
+        return new CorsFilter(source);
+    }
+
+}
