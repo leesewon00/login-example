@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
+    username: sewon
+    password: sewon1234
+    #create user 'sewon'@'%' identified by 'sewon1234';
+    #GRANT ALL PRIVILEGES ON *.* TO 'sewon'@'%';
+    #create database security;
+    #use security;
+
+  jwt:
+    secret: 236979CB6F1AD6B6A6184A31E6BE37DB3818CC36871E26235DD67DCFE4041492
+
+  jpa:
+    hibernate:
+      ddl-auto: none #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
